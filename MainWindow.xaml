@@ -1,0 +1,47 @@
+﻿<Window x:Class="Sapper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sapper"
+        mc:Ignorable="d"
+        Title="Графовий сапер" Height="700" Width="1000"
+        Background="#F4F6F8"
+        Loaded="Window_Loaded">
+    <Grid Margin="18">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Графовий сапер" FontSize="26" FontWeight="Bold"
+                   Foreground="#1F2937" />
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,14,0,14">
+            <Button Content="Зчитати input.txt" Click="LoadButton_Click"
+                    Padding="16,8" Margin="0,0,10,0" />
+            <Button Content="Записати output.txt" Click="SaveButton_Click"
+                    Padding="16,8" Margin="0,0,18,0" />
+            <TextBlock x:Name="FileInfoText" VerticalAlignment="Center"
+                       Foreground="#4B5563" />
+        </StackPanel>
+
+        <Border Grid.Row="2" Background="White" BorderBrush="#D1D5DB"
+                BorderThickness="1" CornerRadius="6" Padding="12">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                          VerticalScrollBarVisibility="Auto">
+                <Grid x:Name="BoardGrid" HorizontalAlignment="Center"
+                      VerticalAlignment="Top" />
+            </ScrollViewer>
+        </Border>
+
+        <StackPanel Grid.Row="3" Margin="0,12,0,0">
+            <TextBlock Text="Легенда:" FontWeight="SemiBold" Foreground="#374151" />
+            <TextBlock Text="■ Міна (1)    0–1    2–3    4–5    6+ — відстань до найближчої міни"
+                       Foreground="#4B5563" Margin="0,4,0,0" />
+            <TextBlock x:Name="StatusText" Foreground="#1D4ED8" Margin="0,6,0,0" />
+        </StackPanel>
+    </Grid>
+</Window>
